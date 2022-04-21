@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-tags-js",
+    "path": "/tags/",
+    "result": {"data":{"allContentfulBlog":{"nodes":[{"tags":["Tutorial","Dificil","Python"]},{"tags":["Snipet","Ruby","Facil"]},{"tags":["React","Tutorial","Facil"]}]}},"pageContext":{}},
+    "staticQueryHashes": ["2468095761"]}
