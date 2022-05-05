@@ -1,19 +1,24 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 import "../assets/css/EmailListForm.css"
 
 const EmailListForm = () => {
   const [email, setEmail] = useState("")
   const [close, setClosed] = useState(false)
-  let i = localStorage.getItem("formConfirm")
+
+  useEffect(() => {
+    if (localStorage.getItem("formClos") === "true") {
+      setClosed(true)
+    }
+  }, [])
 
   const handleCloseStorage = e => {
-    localStorage.setItem("formConfirm", "true")
+    localStorage.setItem("formClos", "true")
     setClosed(true)
   }
 
   const handleSubmit = e => {
-    localStorage.setItem("formConfirm", "true")
+    localStorage.setItem("formClos", "true")
     setClosed(true)
     e.preventDefault()
     addToMailchimp(email)
@@ -29,12 +34,7 @@ const EmailListForm = () => {
   }
 
   return (
-    <div
-      className={`fixed left-0 bottom-0 ${
-        i === "true" || close ? "hidden" : ""
-      }`}
-    >
-      {}
+    <div className={`fixed left-0 bottom-0 ${close ? "hidden" : ""}`}>
       <form onSubmit={handleSubmit} className="EmailListForm">
         <button
           type="button"
