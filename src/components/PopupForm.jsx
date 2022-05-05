@@ -5,6 +5,7 @@ import "../assets/css/EmailListForm.css"
 const EmailListForm = () => {
   const [email, setEmail] = useState("")
   const [close, setClosed] = useState(false)
+  let i = localStorage.getItem("formConfirm")
 
   const handleCloseStorage = e => {
     localStorage.setItem("formConfirm", "true")
@@ -30,9 +31,10 @@ const EmailListForm = () => {
   return (
     <div
       className={`fixed left-0 bottom-0 ${
-        localStorage.getItem("formConfirm") === "true" || close ? "hidden" : ""
+        i === "true" || close ? "hidden" : ""
       }`}
     >
+      {}
       <form onSubmit={handleSubmit} className="EmailListForm">
         <button
           type="button"
